@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		h3{font-size: 24px;color:#F90;}
+		b{font-size: 32px;}
+	</style>
+</head>
+<body>
+	<h3>25000</h3>
+	<h3>10000</h3>
+	<h3>19000</h3>
+	<h3>45000</h3>
+	<script>
+		var h3 = document.getElementsByTagName('h3');
+		for(var i = 0;i<h3.length;i++){
+			var text = h3[i].innerHTML;
+			if (parseInt(text.charAt(1)) != 0){
+				h3[i].innerHTML = text.replace(text[1],'<b>'+ text.charAt(1) +'</b>');
+			}
+			else{
+				h3[i].innerHTML = text.replace(text[0],'<b>'+ text.charAt(0) +'</b>');
+			}
+		}
+	</script>
+</body>
+</html>
