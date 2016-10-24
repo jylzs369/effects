@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css">
+    <style>
+        .control-group {
+            position: relative;
+        }
+        input {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form class="">
+        <div class="control-group">
+            <!--<input id="datepicker" type="datetime" placeholder="选择时间" />-->
+            <input id="startTime" type="datetime" placeholder="选择时间" />
+            <input id="endTime" type="datetime" placeholder="选择时间" />
+        </div>
+    </form>
+    
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(function () {
+            /*$('#datepicker').datetimepicker({
+                format: "dd MM yyyy - hh:ii",
+                autoclose: true,
+                todayBtn: true
+            }).on('changeDate', function (e) {
+                var date = new date(e.target.value);
+                date.setDate(date.getDate() + 7);
+                console.log(date.getDate());
+                //$('#datepicker').datetimepicker('setEndDate', .)
+            });*/
+            var startTime, endTime;
+            $('#startTime').datepicker({  
+                format: 'yyyy-mm-dd',
+                todayBtn : "linked",  
+                autoclose : true,  
+                todayHighlight : true,  
+                endDate : new Date()  
+            }).on('changeDate',function(e){  
+                startTime = e.date;  
+                endTime = new Date(startTime);
+                endTime.setDate(endTime.getDate() + 7);
+                console.log(endTime);
+                $('#endTime').datepicker('setStartDate',startTime);  
+                $('#endTime').datepicker('setEndDate',endTime);  
+            });  
+            //结束时间：  
+            $('#endTime').datepicker({  
+                format: 'yyyy-mm-dd',
+                todayBtn : "linked",  
+                autoclose : true,  
+                todayHighlight : true,  
+                endDate : new Date()  
+            }).on('changeDate',function(e){  
+            });
+        });
+    </script>
+</body>
+</html>
